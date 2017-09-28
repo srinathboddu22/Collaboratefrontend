@@ -16,9 +16,9 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'RegisterController'
   });
   // Drinks
-  $routeProvider.when('/signup', {
-    templateUrl: 'signup.html',
-    controller: 'SignupController'
+  $routeProvider.when('/login', {
+    templateUrl: 'login.html',
+    controller: 'LoginController'
   });
   // Otherwise, redirect to Home
   $routeProvider.otherwise({redirectTo: '/'});
@@ -38,7 +38,7 @@ app.controller('RegisterController', ['$scope', function($scope){
 }]);
 
 // DrinksCotnroller
-app.controller('SignupController', ['$scope', function($scope){
+app.controller('LoginController', ['$scope', function($scope){
   // Bind "message" to display to html pages
   $scope.message = 'This is Drinks page.';
 }]);
