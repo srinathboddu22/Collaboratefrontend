@@ -16,4 +16,21 @@ app.controller('UserController',function($scope,UserService,$location){
 	})
 	
 	}
-})
+	$scope.login=function(){
+		console.log($scope.userObj)
+		UserService.login($scope.userObj).then(function(response){
+			$rootScope.currentUser=response.data
+			$cookieStore.put('userDetails',response.data)
+			$location.path('/home')
+		},function(response){
+			$scope.error=response.data.message
+			$location.path('/login')
+		})
+		}
+	if($rootScope.currentUser!=undefined){
+		UserService.getUser().then(function(response){
+			
+		}
+	}
+	}
+)
